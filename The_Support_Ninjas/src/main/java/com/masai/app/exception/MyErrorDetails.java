@@ -14,5 +14,7 @@ public class MyErrorDetails {
 	private LocalDateTime dateTime;
 	private String message;
 	private String description;
+	
+	
 
 }
