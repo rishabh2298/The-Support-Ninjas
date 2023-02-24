@@ -24,7 +24,7 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
 	private String firstName;
-	private String LastName;
+	private String lastName;
 	private String email;
 	private String mobile;
 	private String city;

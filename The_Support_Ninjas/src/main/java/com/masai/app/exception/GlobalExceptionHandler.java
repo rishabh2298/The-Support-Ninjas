@@ -132,6 +132,37 @@ class GlobalExceptionHandler {
 	
 	
 	
+
+	//  Call Exception Handler
+	@ExceptionHandler(CallNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> callNotFoundExceptionHandler(CallNotFoundException exception, WebRequest req){
+		
+		MyErrorDetails errorDetails = new MyErrorDetails();
+		
+		errorDetails.setDateTime(LocalDateTime.now());
+		errorDetails.setMessage(exception.getMessage());
+		errorDetails.setDescription(req.getDescription(false));
+		
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+		
+	}
+	
+	
+	
+
+	// Issue Exception Handler
+	@ExceptionHandler(IssueNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> issueNotFoundExceptionHandler(IssueNotFoundException exception, WebRequest req){
+		
+		MyErrorDetails errorDetails = new MyErrorDetails();
+		
+		errorDetails.setDateTime(LocalDateTime.now());
+		errorDetails.setMessage(exception.getMessage());
+		errorDetails.setDescription(req.getDescription(false));
+		
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+		
+	}
 	
 	
 	
