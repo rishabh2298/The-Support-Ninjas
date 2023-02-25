@@ -24,7 +24,7 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer departmentId;
-	private Integer departmentName;
+	private String departmentName;
 	
 	
 	@JsonIgnore

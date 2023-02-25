@@ -45,5 +45,8 @@ public class Operator {
 	@ManyToOne
 	@JoinColumn(name = "department_id")
 	private Department department;
+
+
+	
 	
 }

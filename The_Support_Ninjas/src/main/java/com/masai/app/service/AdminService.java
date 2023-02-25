@@ -15,7 +15,7 @@ public interface AdminService {
 	
 	public Department modifyDepartment(Department department)throws DepartmentNotFoundException;
 	
-	public Department findDepartmentById(Department department)throws DepartmentNotFoundException;
+	public Department findDepartmentById(int id)throws DepartmentNotFoundException;
 
 	
 	public boolean addOperator(Integer departmentID,Operator operator)throws OperatorNotFoundException;

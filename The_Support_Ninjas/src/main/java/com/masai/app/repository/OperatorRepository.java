@@ -6,4 +6,6 @@ import com.masai.app.model.Operator;
 
 public interface OperatorRepository extends JpaRepository<Operator, Integer> {
 
+//	Operator checkoper(Integer operatorId);
+
 }
