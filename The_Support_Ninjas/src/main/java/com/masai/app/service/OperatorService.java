@@ -5,10 +5,14 @@ import java.util.List;
 import com.masai.app.exception.CallNotFoundException;
 import com.masai.app.exception.CustomerNotFoundException;
 import com.masai.app.exception.IssueNotFoundException;
+import com.masai.app.exception.LogInException;
 import com.masai.app.model.Customer;
 import com.masai.app.model.Issue;
+import com.masai.app.model.LogIn;
 
 public interface OperatorService {
+	
+	public String logInOperator(LogIn logInDTO) throws LogInException;
 
 	public Issue addCustomerIssue(Integer customerId, Issue issue) throws CustomerNotFoundException, CallNotFoundException;
 	
@@ -26,6 +30,6 @@ public interface OperatorService {
 	
 	public Customer findCustomerByEmail(String email) throws CustomerNotFoundException;
 	
-	public boolean lockCustomer(Integer customerId) throws CustomerNotFoundException;
+	public boolean lockCustomerWithOperator(Integer customerId, String opoeratorKey) throws CustomerNotFoundException;
 	
 }

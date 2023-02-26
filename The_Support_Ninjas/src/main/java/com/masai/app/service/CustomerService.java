@@ -4,12 +4,15 @@ import java.util.List;
 
 import com.masai.app.exception.CustomerNotFoundException;
 import com.masai.app.exception.IssueNotFoundException;
+import com.masai.app.model.Call;
 import com.masai.app.model.Customer;
 import com.masai.app.model.Issue;
 
 public interface CustomerService {
 	
 	public String registerCustomer(Customer customer) throws CustomerNotFoundException;
+	
+	public Call makeCallToServiceCenter(Call call) throws CustomerNotFoundException;
 	
 	public Issue viewIssueById(Integer issueId) throws IssueNotFoundException;
 	
