@@ -2,13 +2,13 @@
 
 <img
   align="right"
-        width="25%"
+        width="20%"
         src="https://github.com/rishabh2298/vacuous-quartz-2667/blob/main/SupportNinjas.png"
         alt=""
       />
 Online Customer Service is defined as any service that helps customers solve problems via the internet. This is done by customer support agents, whose primary goal is to assist customers. Such a service is usually connected to a business or brand which sells products and offers support.
 
-This is a collaborative project, completed by a team of 4 backend developers.
+This is a collaborative project, completed by a team of 2 backend developers.
 
 # Tech Stack
 
