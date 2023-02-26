@@ -8,18 +8,24 @@ import org.springframework.stereotype.Service;
 import com.masai.app.exception.CallNotFoundException;
 import com.masai.app.exception.CustomerNotFoundException;
 import com.masai.app.exception.IssueNotFoundException;
+import com.masai.app.exception.LogInException;
+import com.masai.app.exception.OperatorNotFoundException;
 import com.masai.app.model.Call;
+import com.masai.app.model.CurrentLogInSession;
 import com.masai.app.model.Customer;
 import com.masai.app.model.Issue;
 import com.masai.app.model.IssueStatus;
+import com.masai.app.model.LogIn;
+import com.masai.app.model.Operator;
 import com.masai.app.repository.CallRepository;
+import com.masai.app.repository.CurrentLogInSessionRepository;
 import com.masai.app.repository.CustomerRepository;
 import com.masai.app.repository.IssueRepository;
+import com.masai.app.repository.OperatorRepository;
 
 @Service
 public class OperatorServiceImpl implements OperatorService {
 	
-
 	@Autowired
 	private CustomerRepository customerRepository;
 	
@@ -29,9 +35,27 @@ public class OperatorServiceImpl implements OperatorService {
 	@Autowired
 	private IssueRepository issueRepository;
 	
+	@Autowired
+	private LogInServiceImpl logInServiceImpl;
+	
+	@Autowired
+	private CurrentLogInSessionRepository currentLogInSessionRepository;
+	
+	@Autowired
+	private OperatorRepository operatorRepository;
 	
 	
 	
+	
+
+
+
+	@Override
+	public String logInOperator(LogIn logInDTO) throws LogInException {
+		
+		return logInServiceImpl.userLogIn(logInDTO);
+		
+	}
 
 	
 	
@@ -133,9 +157,22 @@ public class OperatorServiceImpl implements OperatorService {
 	
 	
 	@Override
-	public boolean lockCustomer(Integer customerId) throws CustomerNotFoundException {
-		
+	public boolean lockCustomerWithOperator(Integer customerId, String operatorKey) throws CustomerNotFoundException {
 
+		CurrentLogInSession logginSession = currentLogInSessionRepository.findByUuid(operatorKey);
+		
+		// check for valid customer Id
+		customerRepository.findById(customerId).orElseThrow(() -> new CustomerNotFoundException("No such customer exist with this id="+customerId));
+		
+		// to get operator who's handling customer
+		Operator operator = operatorRepository.findByEmail(logginSession.getUserName());
+		
+		if(operator==null) throw new OperatorNotFoundException("No such operator with this key="+operatorKey+" is logged-In yet...");
+
+		for(Call call : operator.getCalls()) {
+			if(call.getCustomer().getCustomerId()==customerId) return true;
+		}
+		
 		return false;
 	}
 
