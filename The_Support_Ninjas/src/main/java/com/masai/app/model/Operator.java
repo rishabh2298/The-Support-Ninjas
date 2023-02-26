@@ -28,6 +28,7 @@ public class Operator {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String password;
 	private String mobile;
 	private String city;
 	
