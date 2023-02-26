@@ -147,6 +147,8 @@ public class LogInServiceImpl implements LogInService {
 		
 		currentLogInSessionRepository.delete(logInSession);
 		
+		logInDTO.setIsActive(false);
+		
 		return "User ="+logInDTO.getUserName()+" is Logged-Out successfully";
 	}
 

@@ -11,7 +11,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -38,7 +37,8 @@ public class Customer {
 
 	@NotNull(message = "Can't enter null value")
 	@NotBlank(message = "Can't enter blank value")
-	@NotEmpty(message = "Can't enter empty value")	private String lastName;
+	@NotEmpty(message = "Can't enter empty value")	
+	private String lastName;
 	
 	@Email(message = "please enter valid Email address")
 	@Column(unique = true)
