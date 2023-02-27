@@ -24,7 +24,7 @@ public class Issue {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer issueId;
 	
-//	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private IssueType issueType;
 
 	@NotNull(message = "Can't enter null value")
@@ -33,7 +33,7 @@ public class Issue {
 	@Size(min = 10, message = "min description should be 10 characters")
 	private String description;
 	
-//	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private IssueStatus issueStatus;
 	
 }

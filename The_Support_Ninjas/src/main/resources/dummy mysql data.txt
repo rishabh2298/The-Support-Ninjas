@@ -1,0 +1,112 @@
+
+mysql> show tables;
++--------------------------+
+| Tables_in_support_ninjas |
++--------------------------+
+| admin                    |
+| admin_seq                |
+| call_details             |
+| call_details_seq         |
+| current_log_in_session   |
+| customer                 |
+| customer_seq             |
+| department               |
+| department_seq           |
+| issue                    |
+| issue_seq                |
+| operator                 |
+| operator_seq             |
+| solution                 |
+| solution_seq             |
++--------------------------+
+15 rows in set (0.00 sec)
+
+
+
+
+mysql> select * from admin;
++----------+------------------+------------+-----------+----------+
+| admin_id | email            | first_name | last_name | password |
++----------+------------------+------------+-----------+----------+
+|        1 | raj@gmail.com    | Raj        | Verma     | 123456   |
+|        2 | shital@gmail.com | Shital     | Sahu      | 456123   |
++----------+------------------+------------+-----------+----------+
+2 rows in set (0.00 sec)
+
+
+mysql> select * from call_details;
++---------+------------+---------------+--------------+-------------+----------+-------------+
+| call_id | call_date  | call_duration | phone_number | customer_id | issue_id | operator_id |
++---------+------------+---------------+--------------+-------------+----------+-------------+
+|       1 | 2023-02-05 |         23.55 | 78983 44538  |           1 |        1 |           3 |
+|       2 | 2023-02-11 |         32.45 | 78977 98970  |           3 |        4 |           3 |
+|       3 | 2023-02-21 |         14.06 | 88934 58940  |           2 |        2 |           2 |
++---------+------------+---------------+--------------+-------------+----------+-------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select * from customer;
++-------------+----------+-----------------+------------+-----------+-------------+----------+
+| customer_id | city     | email           | first_name | last_name | mobile      | password |
++-------------+----------+-----------------+------------+-----------+-------------+----------+
+|           1 | Pune     | hari@gmail.com  | Hari       | Om        | 78983 44538 | 333444   |
+|           2 | Banglore | kiran@gmail.com | Kiran      | Singh     | 88934 58940 | 555666   |
+|           3 | Chennai  | irfan@gmail.com | Irfan      | Khan      | 78977 98970 | 777888   |
++-------------+----------+-----------------+------------+-----------+-------------+----------+
+3 rows in set (0.00 sec)
+
+
+mysql> select * from department;
++---------------+--------------------+
+| department_id | department_name    |
++---------------+--------------------+
+|             1 | Product Section    |
+|             2 | Payment Section    |
+|             3 | Management Section |
+|             4 | General Section    |
++---------------+--------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from issue;
++----------+------------------------+--------------+-------------------------+
+| issue_id | description            | issue_status | issue_type              |
++----------+------------------------+--------------+-------------------------+
+|        1 | description of issue-1 | NOT_RESOLVED | BROKEN_PRODUCT          |
+|        2 | description of issue-2 | NOT_RESOLVED | LONG_HOLD_TIMES         |
+|        3 | description of issue-3 | RESOLVED     | DEFECTIVE_PRODUCT       |
+|        4 | description of issue-4 | NOT_RESOLVED | PRODUCT_IS_OUT_OF_STOCK |
++----------+------------------------+--------------+-------------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from operator;
++-------------+---------+------------------+------------+-----------+-------------+----------+---------------+
+| operator_id | city    | email            | first_name | last_name | mobile      | password | department_id |
++-------------+---------+------------------+------------+-----------+-------------+----------+---------------+
+|           1 | Pune    | shiv@gmail.com   | Shiv       | Kumar     | 99840 33400 | 123123   |             2 |
+|           2 | Delhi   | ajay@gmail.com   | Ajay       | Dewgan    | 84840 33420 | 111333   |             3 |
+|           3 | Gurgaon | vishnu@gmail.com | Vishnu     | Tripathi  | 99941 33675 | 888444   |             4 |
++-------------+---------+------------------+------------+-----------+-------------+----------+---------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select * from operator;
++-------------+---------+------------------+------------+-----------+-------------+----------+---------------+
+| operator_id | city    | email            | first_name | last_name | mobile      | password | department_id |
++-------------+---------+------------------+------------+-----------+-------------+----------+---------------+
+|           1 | Pune    | shiv@gmail.com   | Shiv       | Kumar     | 99840 33400 | 123123   |             2 |
+|           2 | Delhi   | ajay@gmail.com   | Ajay       | Dewgan    | 84840 33420 | 111333   |             3 |
+|           3 | Gurgaon | vishnu@gmail.com | Vishnu     | Tripathi  | 99941 33675 | 888444   |             4 |
++-------------+---------+------------------+------------+-----------+-------------+----------+---------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select * from current_log_in_session;
++----------------+----------+--------+
+| user_name      | password | uuid   |
++----------------+----------+--------+
+| ajay@gmail.com | 111333   | 1CQY9a |
+| hari@gmail.com | 333444   | 8Dtvq5 |
++----------------+----------+--------+
+2 rows in set (0.00 sec)

@@ -2,7 +2,7 @@ package com.masai.app.model;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -33,7 +33,7 @@ public class Call {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer callId;
 	
-	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate callDate;
 
 	@NotNull(message = "Can't enter null value")
