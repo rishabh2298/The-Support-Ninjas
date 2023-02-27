@@ -44,6 +44,16 @@ public class CustomerController {
 	
 	
 
+	@PostMapping("/logOut/{customerKey}")
+	public ResponseEntity<String> logOutCustomerHandler(@PathVariable("customerKey") String customerKey, @Valid @RequestBody LogIn logInDTO){
+		
+		String result = customerService.logOutCustomer(logInDTO, customerKey);
+		
+		return new ResponseEntity<>(result, HttpStatus.OK);
+		
+	}
+	
+
 	@PostMapping("/register")
 	public ResponseEntity<Customer> registerCustomerHandler(@Valid @RequestBody Customer customer) {
 		

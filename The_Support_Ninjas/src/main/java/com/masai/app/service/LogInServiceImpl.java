@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.app.exception.LogInException;
+import com.masai.app.model.Admin;
 import com.masai.app.model.CurrentLogInSession;
 import com.masai.app.model.Customer;
 import com.masai.app.model.LogIn;
 import com.masai.app.model.Operator;
+import com.masai.app.repository.AdminRepository;
 import com.masai.app.repository.CurrentLogInSessionRepository;
 import com.masai.app.repository.CustomerRepository;
 import com.masai.app.repository.OperatorRepository;
@@ -26,6 +28,8 @@ public class LogInServiceImpl implements LogInService {
 	@Autowired
 	private OperatorRepository operatorRepository;
 	
+	@Autowired
+	private AdminRepository adminRepository;
 
 	
 	
@@ -94,8 +98,30 @@ public class LogInServiceImpl implements LogInService {
 			
 		}
 		else if (logInDTO.getUserType().toString().equals("ADMIN")) {
+
+			// check user-id	
+			Admin admin = adminRepository.findByEmail(logInDTO.getUserName());
+			if(admin==null) throw new LogInException("Please Enter Correct UserName");
 			
-			// admin logg-In session
+			// check user-password
+			if(!admin.getPassword().equals(logInDTO.getPassword())) throw new LogInException("Please Enter correct Password");
+		
+			// making unique loggIn session
+			CurrentLogInSession currentLogInSession = new CurrentLogInSession();
+			currentLogInSession.setUserName(logInDTO.getUserName());
+			currentLogInSession.setPassword(logInDTO.getPassword());
+			
+			String uuid = generateUniqueUUID(6);
+			
+			currentLogInSession.setUuid(uuid);
+
+			CurrentLogInSession logInSession = currentLogInSessionRepository.save(currentLogInSession);
+			
+			// set activation
+			logInDTO.setIsActive(true);
+			
+			
+			return "Logg-In Successfull ! "+logInSession.toString();
 			
 		}
 		else if (logInDTO.getUserType().toString().equals("OPERATOR")) {
@@ -128,7 +154,6 @@ public class LogInServiceImpl implements LogInService {
 			throw new LogInException("User Type Not Found....");
 		}
 		
-		return "Fail to logg-In, Please Try again...";
 	}
 
 	
