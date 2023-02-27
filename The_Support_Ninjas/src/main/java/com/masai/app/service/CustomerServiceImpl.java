@@ -50,9 +50,9 @@ public class CustomerServiceImpl implements CustomerService {
 	
 
 	@Override
-	public String logOutCustomer(LogIn logInDTO, String customerKey) throws LogInException {
-		// TODO Auto-generated method stub
-		return null;
+	public String logOutCustomer(LogIn logInDTO, String operatorKey) throws LogInException {
+		
+		return logInService.userLogOut(logInDTO, operatorKey);
 	}
 
 
