@@ -134,18 +134,18 @@ public class LogInServiceImpl implements LogInService {
 	
 	
 	@Override
-	public String userLogOut(LogIn logInDTO, String key) throws LogInException {
+	public String userLogOut(LogIn logInDTO , String key) throws LogInException {
 		
-		CurrentLogInSession currentUser = currentLogInSessionRepository.findByUserName(logInDTO.getUserName());
+		CurrentLogInSession currentUser = currentLogInSessionRepository.findByUuid(key);
 		
-		if(currentUser==null) throw new LogInException("This "+logInDTO.getUserType().toString()+" is not Logged-In yet...");
+		if(currentUser==null) throw new LogInException("Please enter correct key to LoggOut....");
 		
 
-		CurrentLogInSession logInSession = currentLogInSessionRepository.findByUuid(key);
-		if(logInSession==null) throw new LogInException("Please Enter correct Key");
+//		CurrentLogInSession logInSession = currentLogInSessionRepository.findByUuid(key);
+//		if(logInSession==null) throw new LogInException("Please Enter correct Key");
 		
-		
-		currentLogInSessionRepository.delete(logInSession);
+	
+		currentLogInSessionRepository.delete(currentUser);
 		
 		logInDTO.setIsActive(false);
 		

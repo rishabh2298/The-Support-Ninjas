@@ -31,7 +31,7 @@ public class Department {
 	@NotNull(message = "Can't enter null value")
 	@NotBlank(message = "Can't enter blank value")
 	@NotEmpty(message = "Can't enter empty value")
-	private Integer departmentName;
+	private String departmentName;
 	
 	
 	@JsonIgnore

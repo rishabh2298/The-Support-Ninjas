@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.app.model.Customer;
@@ -20,7 +21,8 @@ import com.masai.app.service.OperatorService;
 
 import jakarta.validation.Valid;
 
-@RestController("/operator")
+@RestController
+@RequestMapping("/operator")
 public class OperatorController {
 
 	
@@ -40,6 +42,18 @@ public class OperatorController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 		
 	}
+	
+	
+	
+	@PostMapping("/logOut/{operatorKey}")
+	public ResponseEntity<String> logOutOperatorHandler(@PathVariable("operatorKey") String operatorKey, @Valid @RequestBody LogIn logInDTO){
+		
+		String result = operatorService.logOutOperator(logInDTO, operatorKey);
+		
+		return new ResponseEntity<>(result, HttpStatus.OK);
+		
+	}
+	
 	
 
 

@@ -35,7 +35,7 @@ public class Solution {
 	@NotNull(message = "Can't enter null value")
 	@NotBlank(message = "Can't enter blank value")
 	@NotEmpty(message = "Can't enter empty value")
-	@Size(min = 6, max = 10 , message = "Character should be between 6 to 10")
+	@Size(min = 6 , message = "Character should be between 6")
 	private String solutionDescription;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")

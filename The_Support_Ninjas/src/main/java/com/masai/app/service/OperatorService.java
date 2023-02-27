@@ -13,6 +13,8 @@ import com.masai.app.model.LogIn;
 public interface OperatorService {
 	
 	public String logInOperator(LogIn logInDTO) throws LogInException;
+	
+	public String logOutOperator(LogIn logInDTO, String operatorKey) throws LogInException;
 
 	public Issue addCustomerIssue(Integer customerId, Issue issue) throws CustomerNotFoundException, CallNotFoundException;
 	
