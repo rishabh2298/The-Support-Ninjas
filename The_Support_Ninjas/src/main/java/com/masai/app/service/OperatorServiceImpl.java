@@ -56,6 +56,15 @@ public class OperatorServiceImpl implements OperatorService {
 		return logInServiceImpl.userLogIn(logInDTO);
 		
 	}
+	
+	
+	
+	@Override
+	public String logOutOperator(LogIn logInDTO, String operatorKey) throws LogInException {
+		
+		return logInServiceImpl.userLogOut(logInDTO, operatorKey);
+	}
+
 
 	
 	
@@ -68,6 +77,8 @@ public class OperatorServiceImpl implements OperatorService {
 		if(call == null) throw new CallNotFoundException("There was no call for this issue found....");
 		
 		call.setIssue(issue);
+		
+		callRepository.save(call);
 		
 		return issue;
 	}

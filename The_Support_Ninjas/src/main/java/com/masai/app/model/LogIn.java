@@ -1,5 +1,7 @@
 package com.masai.app.model;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.AssertFalse;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -25,6 +27,7 @@ public class LogIn {
 	@Size(min = 6, max = 10 , message = "Character should be between 6 to 10")
 	private String password;
 	
+	@Enumerated(EnumType.STRING)
 	private LogInType userType;
 	
 	@AssertFalse
