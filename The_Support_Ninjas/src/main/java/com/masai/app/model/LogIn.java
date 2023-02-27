@@ -30,7 +30,6 @@ public class LogIn {
 	@Enumerated(EnumType.STRING)
 	private LogInType userType;
 	
-	@AssertFalse
 	private Boolean isActive;
 
 }

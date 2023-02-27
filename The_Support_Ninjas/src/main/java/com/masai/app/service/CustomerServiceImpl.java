@@ -47,6 +47,14 @@ public class CustomerServiceImpl implements CustomerService {
 		return logInService.userLogIn(logInDTO);
 	}
 	
+	
+
+	@Override
+	public String logOutCustomer(LogIn logInDTO, String customerKey) throws LogInException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	@Override
 	public Customer registerCustomer(Customer customer) throws CustomerNotFoundException {
@@ -58,8 +66,9 @@ public class CustomerServiceImpl implements CustomerService {
 			throw new CustomerNotFoundException("This customer with id="+customer.getCustomerId()+" is already exist...");		
 		}
 
-		return customerRepository.save(customer);
+		Customer savedCustomer = customerRepository.save(customer);
 		
+		return savedCustomer;
 	}
 	
 

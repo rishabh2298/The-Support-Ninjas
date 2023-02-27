@@ -13,6 +13,8 @@ public interface CustomerService {
 	
 	public String logInCustomer(LogIn logInDTO) throws LogInException;
 	
+	public String logOutCustomer(LogIn logInDTO, String customerKey) throws LogInException;
+	
 	public Customer registerCustomer(Customer customer) throws CustomerNotFoundException;
 	
 	public Issue viewIssueById(Integer issueId) throws IssueNotFoundException;

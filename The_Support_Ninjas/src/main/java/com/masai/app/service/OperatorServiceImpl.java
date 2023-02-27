@@ -71,6 +71,9 @@ public class OperatorServiceImpl implements OperatorService {
 	@Override
 	public Issue addCustomerIssue(Integer customerId, Issue issue) throws CustomerNotFoundException, CallNotFoundException {
 		
+		// if new issue alloted
+		issueRepository.save(issue);
+		
 		Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new CustomerNotFoundException("No such customer with this id="+customerId+" exit....."));
 
 		Call call = callRepository.findByCustomer(customer);		
