@@ -88,7 +88,7 @@ http://localhost:7070/swagger-ui/index.html
 
 ## Collaborators
 
-- [Rishabh Mishra](https://github.com/rishabh2298)
+- [Rishabh Mishra](https://github.com/rishabh2298) (Team Lead)
 - [Roshni Gupta](https://github.com/guptaroshni)
 
 <h2> Thanks for visiting... 🙂 </h2>
