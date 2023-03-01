@@ -19,6 +19,7 @@ This is a collaborative project, completed by a team of 2 backend developers.
 - Spring Data JPA
 - MySQL
 - Maven
+- Lombok
 - Swagger UI
 
 ## Modules
@@ -52,8 +53,13 @@ Customer Features:
 - Change password with unique OTP.
 - View all issues and can reopen it.
 ```
-## Swagger Home UI (Controllers & Schema)
+## Swagger Home UI (Controllers)
 
+![Admin Controller](https://user-images.githubusercontent.com/105991025/222085769-0b9d3292-df67-4783-acb1-31a29c12cdf3.PNG)
+
+![Operator Controller](https://user-images.githubusercontent.com/105991025/222085962-c6a882e9-a0d3-4dbd-baa3-c0f997786cc1.PNG)
+
+![Customer Controller](https://user-images.githubusercontent.com/105991025/222086155-4fdd2353-4b66-4a5b-b785-97a4a46bd047.PNG)
 
 
 ## Installation & Run
@@ -82,7 +88,7 @@ http://localhost:7070/swagger-ui/index.html
 
 ## Collaborators
 
-- [Roshni Gupta](https://github.com/guptaroshni)
 - [Rishabh Mishra](https://github.com/rishabh2298)
+- [Roshni Gupta](https://github.com/guptaroshni)
 
-  Thanks for visiting !
+<h2> Thanks for visiting... 🙂 </h2>
