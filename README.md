@@ -17,6 +17,7 @@ This is a collaborative project, completed by a team of 2 backend developers.
 - Spring Framework
 - Spring Boot
 - Spring Data JPA
+- Postman
 - MySQL
 - Maven
 - Lombok
