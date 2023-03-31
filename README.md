@@ -50,7 +50,7 @@ Operator Fetures:
 ```
 Customer Features:
 - LogIn/Logout with unique sessionId.
-- Get unique OTP to if forget password.
+- Get unique OTP if forget password.
 - Change password with unique OTP.
 - View all issues and can reopen it.
 ```
